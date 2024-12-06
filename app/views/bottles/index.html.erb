@@ -1,0 +1,7 @@
+<h1>Bottles</h1>
+
+<% @bottles.each do |bottle| %>
+  <p><%= bottle.started_at.strftime("%I:%M %p") %></p>
+  <p><%= bottle.finished_at.strftime("%I:%M %p") %></p>
+  <p><%= bottle.amount %> oz</p>
+<% end %>
