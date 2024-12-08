@@ -6,9 +6,6 @@ class BottlesController < ApplicationController
   end
 
   def index
-  end
-
-  def index
     @bottles = Bottle.all
   end
 end
