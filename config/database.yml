@@ -83,6 +83,7 @@ production:
     <<: *default
     database: bottle_log_production
     username: bottle_log
+    url: <%= ENV["DATABASE_URL"] %>
     password: <%= ENV["BOTTLE_LOG_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
