@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_08_211722) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_09_201324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "bottles", force: :cascade do |t|
-    t.decimal "amount", null: false
+    t.decimal "amount"
     t.datetime "started_at"
-    t.datetime "finished_at"
+    t.datetime "ended_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_08_211722) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 

@@ -1,7 +1,18 @@
 <h1>Bottles</h1>
 
-<% @bottles.each do |bottle| %>
-  <p><%= bottle.started_at.strftime("%I:%M %p") %></p>
-  <p><%= bottle.finished_at.strftime("%I:%M %p") %></p>
-  <p><%= bottle.amount %> oz</p>
-<% end %>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Amount</th>
+    <th>Started At</th>
+    <th>Ended At</th>
+  </tr>
+  <% @bottles.each do |bottle| %>
+    <tr>
+      <td><%= bottle.user.email_address %></td>
+      <td><%= bottle.amount %> oz</td>
+      <td><%= bottle.started_at&.strftime("%I:%M %p") %></td>
+      <td><%= bottle.finished_at&.strftime("%I:%M %p") %></td>
+    </tr>
+    </table>
+  <% end %>
