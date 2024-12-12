@@ -1,18 +1,24 @@
 <h1>Bottles</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Amount</th>
-    <th>Started At</th>
-    <th>Ended At</th>
-  </tr>
-  <% @bottles.each do |bottle| %>
-    <tr>
-      <td><%= bottle.user.email_address %></td>
-      <td><%= bottle.amount %> oz</td>
-      <td><%= bottle.started_at&.strftime("%I:%M %p") %></td>
-      <td><%= bottle.finished_at&.strftime("%I:%M %p") %></td>
-    </tr>
-    </table>
-  <% end %>
+<script id="bottles" type="application/json">
+  <%= raw @bottles.to_json %>
+</script>
+
+<div id="app"></div>
+
+<!--<table>-->
+<!--  <tr>-->
+<!--    <th>User</th>-->
+<!--    <th>Amount</th>-->
+<!--    <th>Started At</th>-->
+<!--    <th>Ended At</th>-->
+<!--  </tr>-->
+  <%# @bottles.each do |bottle| %>
+<!--    <tr>-->
+<!--      <td><%#= bottle.user.email_address %></td>-->
+<!--      <td><%#= bottle.amount %> oz</td>-->
+<!--      <td><%#= bottle.started_at&.strftime("%I:%M %p") %></td>-->
+<!--      <td><%#= bottle.ended_at&.strftime("%I:%M %p") %></td>-->
+<!--    </tr>-->
+  <%# end %>
+<!--</table>-->
