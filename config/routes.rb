@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root "bottles#index"
+
+  resources :bottles, only: [:index, :show, :new, :create]
 end
