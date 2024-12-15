@@ -8,3 +8,34 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+.bottle-table {
+    width: auto;
+    text-align: left;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 2px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.space-y-6 > * + * {
+    margin-top: 1.5rem; /* 24px */
+}
+
+.space-x-6 > * + * {
+    margin-left: 1.5rem; /* 24px */
+}
+
+
