@@ -23,6 +23,12 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <div class="flex" style="border: 1px solid red; height: 50px;">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

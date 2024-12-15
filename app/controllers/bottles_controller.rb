@@ -4,11 +4,12 @@ class BottlesController < ApplicationController
   end
 
   def create
-    @bottle = Current.user.bottles.build(bottle_params)
+    @bottle = Current.user.bottles.build(**bottle_params)
     if @bottle.save
-      redirect_to @bottle, notice: 'Post was successfully created.'
+      redirect_to @bottle, notice: "Bottle was successfully created."
     else
-      render :new
+      flash.now[:notice] = @bottle.errors.full_messages.to_sentence
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -18,6 +19,21 @@ class BottlesController < ApplicationController
 
   def index
     @bottles = Bottle.all
+  end
+
+  def edit
+    @bottle = Bottle.find(params[:id])
+  end
+
+  def update
+    @bottle = Bottle.find(params[:id])
+
+    if @bottle.update(**bottle_params)
+      redirect_to @bottle, notice: "Bottle updated"
+    else
+      flash.now[:notice] = @bottle.errors.full_messages.to_sentence
+      render :edit, status: :unprocessable_content
+    end
   end
 
   private

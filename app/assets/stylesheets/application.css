@@ -34,4 +34,8 @@ td, th {
     margin-top: 1.5rem; /* 24px */
 }
 
+.space-x-6 > * + * {
+    margin-left: 1.5rem; /* 24px */
+}
+
 

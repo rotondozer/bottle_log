@@ -16,5 +16,5 @@ Rails.application.routes.draw do
 
   root "bottles#index"
 
-  resources :bottles, only: [:index, :show, :new, :create]
+  resources :bottles, only: [:index, :show, :new, :create, :edit, :update]
 end

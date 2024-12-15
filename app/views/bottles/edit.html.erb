@@ -1,4 +1,4 @@
-<h1>New Bottle</h1>
+<h1><%= @bottle.started_at.strftime("Edit Bottle from %m/%d/%Y at %I:%M%p") %></h1>
 
 <%= form_for(@bottle, html: {class: "flex flex-col space-y-6", style: "width: 50%; border: 1px solid blue;"}) do |form| %>
   <div class="flex flex-col">

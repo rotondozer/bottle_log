@@ -2,8 +2,13 @@
 <p>Bottle recorded by: <%= @bottle.user.name %></p>
 <p>Amount: <%= @bottle.amount %>oz</p>
 <p>Started At: <%= @bottle.started_at&.strftime("%I:%M %p") %></p>
-<% if @bottle.ended_at.nil? %>
-  <%= button_to "Mark Done", "#mark_done" %>
-<% else %>
-  <p>Ended At: <%= @bottle.started_at&.strftime("%I:%M %p") %></p>
-<% end %>
+
+<div class="flex flex-row space-x-6">
+  <%= link_to "Edit", edit_bottle_path(@bottle)  %>
+
+  <% if @bottle.ended_at.nil? %>
+    <%= button_to "Mark Done", "#mark_done" %>
+  <% else %>
+    <p>Ended At: <%= @bottle.ended_at&.strftime("%I:%M %p") %></p>
+  <% end %>
+</div>
