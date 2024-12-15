@@ -26,6 +26,10 @@ td, th {
     flex-direction: row;
 }
 
+.justify-between {
+    justify-content: space-between;
+}
+
 .flex-col {
     flex-direction: column;
 }

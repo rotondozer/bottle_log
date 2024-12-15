@@ -1,6 +1,4 @@
 <h1>Bottles</h1>
-<%= link_to "New Bottle", new_bottle_path %>
-
 <table class="bottle-table">
   <tr>
     <th>User</th>
@@ -8,6 +6,7 @@
     <th>Started At</th>
     <th>Ended At</th>
     <th>View</th>
+    <th>Edit</th>
   </tr>
   <% @bottles.each do |bottle| %>
     <tr>
@@ -16,6 +15,7 @@
       <td><%= bottle.started_at&.strftime("%I:%M %p") %></td>
       <td><%= bottle.ended_at&.strftime("%I:%M %p") %></td>
       <td><%= link_to "View", bottle_path(bottle) %></td>
+      <td><%= link_to "Edit", edit_bottle_path(bottle) %></td>
     </tr>
   <% end %>
 </table>
