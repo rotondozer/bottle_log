@@ -1,3 +1,5 @@
+<h1><%= @bottle.started_at.strftime("Viewing Bottle from %m/%d/%Y at %I:%M%p") %></h1>
+
 <p>Date: <%= @bottle.started_at&.strftime("%m/%d/%Y") %></p>
 <p>Bottle recorded by: <%= @bottle.user.name %></p>
 <p>Amount: <%= @bottle.amount %>oz</p>
