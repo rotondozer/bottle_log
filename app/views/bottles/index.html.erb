@@ -1,21 +1,27 @@
 <h1>Bottles</h1>
-<table class="bottle-table">
-  <tr>
-    <th>User</th>
-    <th>Amount</th>
-    <th>Started At</th>
-    <th>Ended At</th>
-    <th>View</th>
-    <th>Edit</th>
-  </tr>
-  <% @bottles.each do |bottle| %>
+<p><%= @bottles.count %> Bottles recorded for #{this month}</p>
+<% @bottles.each do |day, bottles| %>
+  <h2><%= day.strftime("%m/%d/%Y") %></h2>
+  <table class="bottle-table">
     <tr>
-      <td><%= bottle.user.name %></td>
-      <td><%= bottle.amount %> oz</td>
-      <td><%= bottle.started_at&.strftime("%I:%M %p") %></td>
-      <td><%= bottle.ended_at&.strftime("%I:%M %p") %></td>
-      <td><%= link_to "View", bottle_path(bottle) %></td>
-      <td><%= link_to "Edit", edit_bottle_path(bottle) %></td>
+      <th>User</th>
+      <th>Day</th>
+      <th>Amount</th>
+      <th>Started At</th>
+      <th>Ended At</th>
+      <th>View</th>
+      <th>Edit</th>
     </tr>
-  <% end %>
-</table>
+    <% bottles.each do |bottle| %>
+      <tr>
+        <td><%= bottle.user.name %></td>
+        <td><%= day.strftime("%m/%d/%Y") %></td>
+        <td><%= bottle.amount %> oz</td>
+        <td><%= bottle.started_at&.strftime("%I:%M %p") %></td>
+        <td><%= bottle.ended_at&.strftime("%I:%M %p") %></td>
+        <td><%= link_to "View", bottle_path(bottle) %></td>
+        <td><%= link_to "Edit", edit_bottle_path(bottle) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

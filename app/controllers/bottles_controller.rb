@@ -18,7 +18,9 @@ class BottlesController < ApplicationController
   end
 
   def index
-    @bottles = Bottle.all
+    # TODO: filter entries based on a month param
+    entries = Bottle.where("started_at >= ? AND started_at < ?", Date.current.beginning_of_month, Date.current.end_of_month)
+    @bottles = entries.group_by { |x| x.started_at.to_date }
   end
 
   def edit

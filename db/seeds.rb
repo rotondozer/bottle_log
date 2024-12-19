@@ -4,9 +4,9 @@ hours = [2, 6, 9, 12, 15, 18]
 minutes = (1..59).to_a
 amounts = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5]
 
-nick = User.first_or_create! email_address: "nick@email.com", password: "applesauce"
-elisha = User.first_or_create!(email_address: "elisha@email.com", password: "applesauce")
-daycare = User.first_or_create!(email_address: "daycare@email.com", password: "applesauce")
+nick = User.first_or_create! name: "Nick", email_address: "nick@email.com", password: "applesauce"
+elisha = User.first_or_create! name: "Elisha", email_address: "elisha@email.com", password: "applesauce"
+daycare = User.first_or_create! name: "Daycare", email_address: "daycare@email.com", password: "applesauce"
 
 users = [nick, elisha, daycare]
 
