@@ -1,0 +1,5 @@
+<h1>Welcome <%= @user.name %>! Select the child below:</h1>
+
+<% @children.each do |child| %>
+  <%= link_to child.name, child_bottles_path(child) %>
+<% end %>

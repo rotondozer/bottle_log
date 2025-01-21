@@ -10,14 +10,16 @@ daycare = User.first_or_create! name: "Daycare", email_address: "daycare@email.c
 
 users = [nick, elisha, daycare]
 
+jamie = Child.first_or_create! name: "Jamie", date_of_birth: DateTime.new(2024, 4, 15, 6, 59)
+
 months.each do |month|
   days.each do |day|
     break if month == 2 && day > 28 # Stupid February
 
     hours.each do |hour|
       min = minutes.sample
-      started_at = DateTime.new(2024, month, day, hour, min)
-      Bottle.create! started_at:, ended_at: started_at + 30.minutes, amount: amounts.sample, user: users.sample
+      started_at = DateTime.new(2025, month, day, hour, min)
+      Bottle.create! child: jamie, started_at:, ended_at: started_at + 30.minutes, amount: amounts.sample, user: users.sample
     end
   end
 end

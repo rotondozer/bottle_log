@@ -1,6 +1,7 @@
-<h1>Bottles</h1>
+<h1><%= @child.name %>'s Bottles</h1>
 <p><%= @bottles.count %> Bottles recorded for #{this month}</p>
-<% @bottles.each do |day, bottles| %>
+
+<% @bottle_groups.each do |day, bottles| %>
   <h2><%= day.strftime("%m/%d/%Y") %></h2>
   <table class="bottle-table">
     <tr>
@@ -19,8 +20,8 @@
         <td><%= bottle.amount %> oz</td>
         <td><%= bottle.started_at&.strftime("%I:%M %p") %></td>
         <td><%= bottle.ended_at&.strftime("%I:%M %p") %></td>
-        <td><%= link_to "View", bottle_path(bottle) %></td>
-        <td><%= link_to "Edit", edit_bottle_path(bottle) %></td>
+        <td><%= link_to "View", child_bottle_path(@child, bottle) %></td>
+        <td><%= link_to "Edit", edit_child_bottle_path(@child, bottle) %></td>
       </tr>
     <% end %>
   </table>
