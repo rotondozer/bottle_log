@@ -1,0 +1,14 @@
+<nav class="flex flex-row justify-between">
+  <div>
+    <%= content_tag("h1", "Hi, #{Current.user.name}") %>
+  </div>
+
+  <div class="nav-buttons flex flex-row space-x-6">
+    <%= button_to "New Bottle", new_child_bottle_path(@child), method: :get %>
+    <%= button_to "#{@child.name}'s Bottles", child_bottles_path(@child), method: :get %>
+    <%= button_to "Home", root_path, method: :get %>
+    <%= button_to "Logout", session_path, method: :delete %>
+  </div>
+</nav>
+
+<%= render template: 'layouts/application' %>

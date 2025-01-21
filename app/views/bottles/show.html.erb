@@ -6,7 +6,7 @@
 <p>Started At: <%= @bottle.started_at&.strftime("%I:%M %p") %></p>
 
 <div class="flex flex-row space-x-6">
-  <%= link_to "Edit", edit_bottle_path(@bottle)  %>
+  <%= link_to "Edit", edit_child_bottle_path(@bottle.child, @bottle)  %>
 
   <% if @bottle.ended_at.nil? %>
     <%= button_to "Mark Done", "#mark_done" %>

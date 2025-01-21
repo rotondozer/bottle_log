@@ -1,27 +1,13 @@
-<h1>Bottles</h1>
-<p><%= @bottles.count %> Bottles recorded for #{this month}</p>
-<% @bottles.each do |day, bottles| %>
-  <h2><%= day.strftime("%m/%d/%Y") %></h2>
-  <table class="bottle-table">
-    <tr>
-      <th>User</th>
-      <th>Day</th>
-      <th>Amount</th>
-      <th>Started At</th>
-      <th>Ended At</th>
-      <th>View</th>
-      <th>Edit</th>
-    </tr>
-    <% bottles.each do |bottle| %>
-      <tr>
-        <td><%= bottle.user.name %></td>
-        <td><%= day.strftime("%m/%d/%Y") %></td>
-        <td><%= bottle.amount %> oz</td>
-        <td><%= bottle.started_at&.strftime("%I:%M %p") %></td>
-        <td><%= bottle.ended_at&.strftime("%I:%M %p") %></td>
-        <td><%= link_to "View", bottle_path(bottle) %></td>
-        <td><%= link_to "Edit", edit_bottle_path(bottle) %></td>
-      </tr>
-    <% end %>
-  </table>
+<%= content_tag("h1", "#{@child.name}'s bottles") %>
+<%= content_tag(:p, "#{@bottles.count} bottles recorded for #{Date.strptime(params[:month] || current_month, "%Y-%m").strftime("%B %Y")}") %>
+
+<div id="bottles-filter">
+  <%= form_with url: child_bottles_path(@child), method: :get, data: { turbo_frame: "bottles_frame" }, local: true do |form| %>
+    <%= form.label :month, "Filter by Month:" %>
+    <%= form.select :month, options_for_select(month_options, params[:month] || current_month), {}, onchange: "this.form.submit();" %>
+  <% end %>
+</div>
+
+<%= turbo_frame_tag "bottles_frame" do %>
+  <%= render partial: "bottles/list", locals: { bottle_groups: @bottle_groups } %>
 <% end %>
