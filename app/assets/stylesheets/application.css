@@ -8,9 +8,19 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
-.bottle-table {
-    width: auto;
-    text-align: left;
+body {
+    background-color: antiquewhite;
+    padding: 5px;
+}
+
+nav {
+    background-color: lightblue;
+    padding: 10px;
+    align-items: center;
+}
+
+form {
+    width: 50%;
 }
 
 td, th {
@@ -18,12 +28,30 @@ td, th {
     padding: 2px;
 }
 
+/* Specific Classes */
+
+.bottle-table {
+    width: auto;
+    text-align: left;
+}
+
+.nav-buttons {
+    float: right;
+    padding: 24px;
+}
+
+/* Utility Classes */
+
 .flex {
     display: flex;
 }
 
 .flex-row {
     flex-direction: row;
+}
+
+.justify-between {
+    justify-content: space-between;
 }
 
 .flex-col {

@@ -1,6 +1,6 @@
 <h1><%= @bottle.started_at.strftime("Edit Bottle from %m/%d/%Y at %I:%M%p") %></h1>
 
-<%= form_for(@bottle, html: {class: "flex flex-col space-y-6", style: "width: 50%; border: 1px solid blue;"}) do |form| %>
+<%= form_with(model: [@child, @bottle], html: {class: "flex flex-col space-y-6"}) do |form| %>
   <div class="flex flex-col">
     <%= form.label :amount %>
     <%= form.number_field :amount, step: 0.5 %>

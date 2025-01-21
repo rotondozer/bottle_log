@@ -1,24 +1,14 @@
-# README
+# Bottle Log
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hosted on Heroku, live at `bottle.rotondozer.com`
 
-Things you may want to cover:
+## Access
 
-* Ruby version
+Currently, this app only serves myself and my family (and anyone that cares for my son). There is no place to create an account, but that's something I plan on adding.
 
-* System dependencies
+## Deploy
 
-* Configuration
+Currently just using the default Heroku commands to deploy via the command line:
+`git push heroku main`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I'd like to add GitHub actions to deploy, to open up contribution.
