@@ -7,7 +7,7 @@ class BottlesController < ApplicationController
   end
 
   def create
-    @bottle = child.bottles.build(**bottle_params, user_id: Current.user)
+    @bottle = child.bottles.build(**bottle_params)
     if @bottle.save
       redirect_to child_bottle_path(@child, @bottle), notice: "Bottle was successfully created."
     else
@@ -21,10 +21,19 @@ class BottlesController < ApplicationController
   end
 
   def index
-    # TODO: filter entries based on a month param
+    start_date = if params[:month].present?
+      Date.strptime(params[:month], "%Y-%m")
+    else
+      Date.current.beginning_of_month
+    end
     @bottles = child.bottles.includes(:user)
-              .where("started_at >= ? AND started_at < ?", Date.current.beginning_of_month, Date.current.end_of_month)
+      .where("started_at >= ? AND started_at < ?", start_date, start_date.end_of_month)
     @bottle_groups = @bottles.group_by { |x| x.started_at.to_date }
+
+    respond_to do |format|
+      format.html # For the initial page load
+      format.turbo_stream # For Turbo Stream updates
+    end
   end
 
   def edit
