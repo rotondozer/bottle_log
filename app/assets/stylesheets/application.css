@@ -54,6 +54,14 @@ td, th {
     justify-content: space-between;
 }
 
+.justify-center	{
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
 .flex-col {
     flex-direction: column;
 }
@@ -62,8 +70,14 @@ td, th {
     margin-top: 1.5rem; /* 24px */
 }
 
+.space-y-2 > * + * {
+    margin-top: 0.5rem; /* 8px */
+}
+
 .space-x-6 > * + * {
     margin-left: 1.5rem; /* 24px */
 }
+
+
 
 
